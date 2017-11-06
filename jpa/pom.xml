@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jee-tutorial</artifactId>
+        <groupId>ua.lviv.navpil</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ua.lviv.navpil.jeetutorial</groupId>
+    <artifactId>jpa</artifactId>
+    <packaging>jar</packaging>
+
+    <name>jpa</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javax.annotation.version>1.2</javax.annotation.version>
+        <hibernate.version>5.2.12.Final</hibernate.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.0.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.0.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${javax.annotation.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+
+
+        <!-- Junit5 is very flexible, but I how should I know all of these dependencies out of my head?
+        It's just Unit tests. They should simply run. Arrgh, nevermind, STFG, copypaste and it works.
+
+        Oh! And don't forget to update the surefire plugin configuration! Otherwise tests would not run.
+
+        Configuration, configuration, configuration everywhere!
+        -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>4.12.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>1.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- End of Junit 5 configuration -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.4</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>hibernate</id>
+            <dependencies>
+                <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+                </dependency>
+
+                <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/hibernate-resources</directory>-->
+                        <!--<targetPath>META-INF</targetPath>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+                <testResources>
+                    <testResource>
+                        <directory>src/test/hibernate-resources</directory>
+                        <targetPath>META-INF</targetPath>
+                    </testResource>
+                </testResources>
+            </build>
+        </profile>
+        <profile>
+            <id>eclipselink</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.persistence</groupId>
+                    <artifactId>eclipselink</artifactId>
+                    <version>2.5.0</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/eclipselink-resources</directory>-->
+                        <!--<targetPath>META-INF</targetPath>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+                <testResources>
+                    <testResource>
+                        <directory>src/test/eclipselink-resources</directory>
+                        <targetPath>META-INF</targetPath>
+                    </testResource>
+                </testResources>
+            </build>
+        </profile>
+    </profiles>
+</project>
