@@ -1,4 +1,4 @@
-package ua.lviv.navpil.jeetutorial;
+package ua.lviv.navpil.jeetutorial.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

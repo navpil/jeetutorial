@@ -1,4 +1,4 @@
-package ua.lviv.navpil.jeetutorial;
+package ua.lviv.navpil.jeetutorial.jpa;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ua.lviv.navpil.jeetutorial.jpa.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

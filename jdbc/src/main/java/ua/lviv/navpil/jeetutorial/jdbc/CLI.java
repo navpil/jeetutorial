@@ -1,4 +1,4 @@
-package ua.lviv.navpil.jdbc;
+package ua.lviv.navpil.jeetutorial.jdbc;
 
 import asg.cliche.Command;
 import asg.cliche.Param;
@@ -33,6 +33,16 @@ public class CLI {
             }
         }
         return sb.toString();
+    }
+
+    @Command(description = "same as 'read'")
+    public String get(int id) throws SQLException {
+        return read(id);
+    }
+
+    @Command
+    public String help() {
+        return "For help please print: ?help";
     }
 
     @Command(description = "Find user with id")

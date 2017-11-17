@@ -14,7 +14,7 @@
 
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-    <class>ua.lviv.navpil.jeetutorial.User</class>
+    <class>ua.lviv.navpil.jeetutorial.jpa.User</class>
 
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
 

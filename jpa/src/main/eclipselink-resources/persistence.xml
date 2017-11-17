@@ -9,7 +9,7 @@
 
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <!-- If we don't list the class explicitly it will not be found during "mvn test" in case this is a test resource-->
-    <class>ua.lviv.navpil.jeetutorial.User</class>
+    <class>ua.lviv.navpil.jeetutorial.jpa.User</class>
 
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
