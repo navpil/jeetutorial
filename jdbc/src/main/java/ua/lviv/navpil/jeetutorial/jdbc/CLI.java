@@ -48,12 +48,12 @@ public class CLI {
     }
 
     @Command(description = "Delete user with id")
-    public boolean delete(@Param(name = "id") int id) throws SQLException {
+    public String delete(@Param(name = "id") int id) throws SQLException {
         return users.delete(id);
     }
 
     @Command(description = "Add user")
-    public boolean add(@Param(name = "name") String name, @Param(name = "age") int age) throws SQLException {
+    public String add(@Param(name = "name") String name, @Param(name = "age") int age) throws SQLException {
         return users.add(name, age);
     }
 
@@ -94,7 +94,6 @@ public class CLI {
         }
 
         try (Connection c = factory.create()) {
-            c.setAutoCommit(true);
             ShellFactory.createConsoleShell(prompt, "Cli interface for JDBC", new CLI(c, dbProps.getProperty("db.scripts.path"))).commandLoop();
         }
     }
