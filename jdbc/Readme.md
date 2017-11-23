@@ -22,7 +22,7 @@ Connections and Statements are Autoclosables.
 
 Connection can be created by:
  - Simple `DriverManager.getConnection`
- - Manual creation `ds = new JDBCDataSource()` and then `ds.getConnection`
+ - Manual creation `ds = new org.hsqldb.jdbc.JDBCDataSource()` (for hsqldb) and then `ds.getConnection`
  - DataSource taken from JNDI and then `ds.getConnection`
 
 In order to create connection you need three things: 
@@ -43,6 +43,17 @@ And postgres which is running on localhost can be
 
     jdbc:postgresql://localhost:12345/candies
 
+## JDBC Driver
+
+Each DBMS comes with their own version of JDBC driver. 
+
+Sometimes it's enough that the driver is in classpath, so it will be picked up automatically like in DriverManager.getConnection.
+
+Sometimes driver name should be provided in the configuration, like in CoffeeShopDS.properties or when configuring JPA. 
+
+For those interested in how the Drivers are picked up automatically, please read about [SPI](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html) - 
+the lesser known Java capability. 
+Please note, that `-Djava.ext.dirs` mentioned in tutorial is not working in Java 9 and you should use classpath for that.
 
 ## JNDI
 
