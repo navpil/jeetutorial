@@ -10,9 +10,10 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Hashtable;
 
 /**
- * Configuration of DataSource is done in the in-memory jndi
+ * Configuration of DataSource is done in-memory jndi
  */
 public class ManualJndiDataSourceDemo implements ConnectionFactory{
 
@@ -38,7 +39,8 @@ public class ManualJndiDataSourceDemo implements ConnectionFactory{
         //This creates a persistent DB
         new ManuallyPopulateJndiDataSource().run();
 
-        InitialContext initialContext = new InitialContext();
+        Hashtable<String, Object> env = new Hashtable<>();
+        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.osjava.sj.SimpleContextFactory");        InitialContext initialContext = new InitialContext(env);
         Context subcontext = (Context)initialContext.lookup("my-subcontext");
         DataSource ds = (DataSource) subcontext.lookup(ManuallyPopulateJndiDataSource.JDBC_COFFEESHOP_JNDI_NAME);
 

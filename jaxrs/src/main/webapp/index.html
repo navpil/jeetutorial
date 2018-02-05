@@ -1,0 +1,89 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery-3.1.1.js" ></script>
+</head>
+<body>
+<div>This is a test app 11</div>
+<div id="hello-string"></div>
+<div id="pollarity-db-path"></div>
+<input type="button" value="hello" id="b"/>
+<input type="button" value="call pollarity" id="pollarity"/>
+
+
+<div id="two-string"></div>
+<input type="button" value="two" id="two-button"/>
+
+<div id="three-string"></div>
+<input type="button" value="three" id="three-button"/>
+
+<div id="four-string"></div>
+<input type="button" value="four" id="four-button"/>
+
+    <script type="text/javascript">
+
+        var bindButton = function(name, method, url) {
+            $("#" + name + "-button").on('click', function() {
+                $.ajax({
+                    type: method,
+                    url: url,
+                    success: function(a, b, c, d) {
+                        var response = a;
+                        $("#" + name + "-string").text(a);
+                    },
+                    error: function(response){
+                        if(response.status==401){
+                            $('<iframe src="'+url+'"></iframe>').appendTo('body');
+                        }
+                    },
+                    contentType: "text/plain",
+                    data: '{"ApplID":"Pollarity", "Data": {}}'
+
+                });
+            });
+
+        }
+        bindButton("two", 'GET', 'http://localhost:8071/myapp/my-res/two');
+        bindButton("three", 'POST', 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/healthcheck');
+        bindButton("four", 'POST', 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/dbpath/read');
+
+
+        var doSomething = function() {
+            $.ajax({
+                type: 'POST',
+                url: 'myapp/my-res/one',
+                success: function(a, b, c, d) {
+                    var response = a;
+                    $("#hello-string").text(a);
+                },
+                error: function(a,b,c,d) {
+                    console.log("Error");
+                }
+            })
+        }
+
+    callPollarity = function () {
+        $.get({
+//            type: 'GET',
+            url: 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/healthcheck',
+//            xhrFields: {
+ //            withCredentials: true
+  //          },
+    //        beforeSend: function(xhr) {
+//               xhr.setRequestHeader('Origin', 'http://localhost:8071');
+     //       },
+            success: function(a) {
+                var response = a;
+                $("#pollarity-db-path").text(a);
+            }
+        })
+    }
+
+    $("#b").on('click', doSomething);
+    $("#pollarity").on('click', callPollarity);
+
+
+
+    </script>
+
+</body>
+</html>
