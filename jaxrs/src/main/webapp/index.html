@@ -5,10 +5,7 @@
 <body>
 <div>This is a test app 11</div>
 <div id="hello-string"></div>
-<div id="pollarity-db-path"></div>
 <input type="button" value="hello" id="b"/>
-<input type="button" value="call pollarity" id="pollarity"/>
-
 
 <div id="two-string"></div>
 <input type="button" value="two" id="two-button"/>
@@ -43,9 +40,6 @@
 
         }
         bindButton("two", 'GET', 'http://localhost:8071/myapp/my-res/two');
-        bindButton("three", 'POST', 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/healthcheck');
-        bindButton("four", 'POST', 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/dbpath/read');
-
 
         var doSomething = function() {
             $.ajax({
@@ -61,27 +55,7 @@
             })
         }
 
-    callPollarity = function () {
-        $.get({
-//            type: 'GET',
-            url: 'http://localhost:8080/poll-ms-backend/pollarity/1/admin/healthcheck',
-//            xhrFields: {
- //            withCredentials: true
-  //          },
-    //        beforeSend: function(xhr) {
-//               xhr.setRequestHeader('Origin', 'http://localhost:8071');
-     //       },
-            success: function(a) {
-                var response = a;
-                $("#pollarity-db-path").text(a);
-            }
-        })
-    }
-
     $("#b").on('click', doSomething);
-    $("#pollarity").on('click', callPollarity);
-
-
 
     </script>
 
