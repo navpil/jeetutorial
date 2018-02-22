@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<job-scheduling-data xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd"
+  version="2.0">
+
+<!-- 
+http://www.cronmaker.com/
+ -->
+ 
+	<schedule>
+		<job>
+			<name>hello_world_job</name>
+			<group>navpil</group>
+			<description>Try quartz</description>
+			<job-class>ua.lviv.navpil.batches.QuartzHelloWorld</job-class>
+			<job-data-map></job-data-map>
+		</job>
+
+		<trigger>
+			<!-- run every minute all days of the week -->
+			<cron>
+				<name>hello_world_trigger</name>
+				<group>navpil</group>
+				<job-name>hello_world_job</job-name>
+				<job-group>navpil</job-group>
+				<cron-expression>0 0/1 * 1/1 * ? *</cron-expression>
+			</cron>
+		</trigger>
+	</schedule>
+</job-scheduling-data>

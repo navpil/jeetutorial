@@ -11,6 +11,7 @@
         <module>jaxrs</module>
         <module>arquilliandemo</module>
         <module>jaxws</module>
+        <module>batches</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -18,6 +19,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jetty.http.port>8070</jetty.http.port>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +57,24 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>2.4.3</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>9.2.6.v20141205</version>
+
+                    <!--Extracted configuration from /.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.7.v20170914/*.jar/org/eclipse/jetty/webapp/
+                    And changed useFileMappedBuffer to false
+                     -->
+                    <configuration>
+                        <httpConnector>
+                            <port>${jetty.http.port}</port>
+                        </httpConnector>
+                        <webApp>
+                            <defaultsDescriptor>jetty-config/webdefault.xml</defaultsDescriptor>
+                        </webApp>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
