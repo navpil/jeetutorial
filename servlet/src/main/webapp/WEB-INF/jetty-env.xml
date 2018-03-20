@@ -1,0 +1,23 @@
+<!--http://www.eclipse.org/jetty/documentation/current/jndi.html-->
+<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
+
+    <New class="org.eclipse.jetty.plus.jndi.EnvEntry">
+        <Arg></Arg>
+        <Arg>mySpecialValue</Arg>
+        <Arg type="java.lang.Integer">4000</Arg>
+        <Arg type="boolean">true</Arg>
+    </New>
+
+
+    <New id="myds" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg><Ref id="wac"/></Arg>
+        <Arg>jdbc/mydb</Arg>
+        <Arg>
+            <New class="org.hsqldb.jdbc.JDBCDataSource">
+                <Set name="DatabaseName">mem:coffeeshop</Set>
+                <Set name="User">sa</Set>
+                <Set name="Password">any</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>

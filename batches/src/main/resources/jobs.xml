@@ -18,13 +18,13 @@ http://www.cronmaker.com/
 		</job>
 
 		<trigger>
-			<!-- run every minute all days of the week -->
+			<!-- run every second -->
 			<cron>
 				<name>hello_world_trigger</name>
 				<group>navpil</group>
 				<job-name>hello_world_job</job-name>
 				<job-group>navpil</job-group>
-				<cron-expression>0 0/1 * 1/1 * ? *</cron-expression>
+				<cron-expression>0/1 * * * * ? *</cron-expression>
 			</cron>
 		</trigger>
 	</schedule>

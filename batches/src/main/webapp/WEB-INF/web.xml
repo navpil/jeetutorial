@@ -3,6 +3,13 @@
 Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
 <web-app>
+
+    <!--<listener>-->
+        <!--<listener-class>-->
+            <!--org.quartz.ee.servlet.QuartzInitializerListener-->
+        <!--</listener-class>-->
+    <!--</listener>-->
+
     <servlet>
         <servlet-name>QuartzInitializer</servlet-name>
         <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
@@ -12,4 +19,9 @@ Inc.//DTD Web Application 2.3//EN"
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>QuartzInitializer</servlet-name>-->
+        <!--<url-pattern>/quartzInitializer</url-pattern>-->
+    <!--</servlet-mapping>-->
 </web-app>

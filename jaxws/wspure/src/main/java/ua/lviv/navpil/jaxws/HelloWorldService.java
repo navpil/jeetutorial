@@ -6,13 +6,13 @@ import javax.jws.soap.SOAPBinding;
 
 
 @WebService
-@SOAPBinding
-        (
-        style = javax.jws.soap.SOAPBinding.Style.RPC,
-        use = SOAPBinding.Use.ENCODED
-//        parameterStyle = SOAPBinding.ParameterStyle.BARE
-
-)
+//@SOAPBinding
+//        (
+//        style = javax.jws.soap.SOAPBinding.Style.RPC,
+//        use = SOAPBinding.Use.ENCODED
+////        parameterStyle = SOAPBinding.ParameterStyle.BARE
+//
+//)
 public interface HelloWorldService {
 
     @WebMethod

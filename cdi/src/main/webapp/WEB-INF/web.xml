@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems,
+Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
+
+<web-app>
+    <!--<servlet>-->
+        <!--<servlet-name>hello</servlet-name>-->
+        <!--<servlet-class>-->
+            <!--ua.lviv.navpil.HelloServlet-->
+        <!--</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>hello</servlet-name>-->
+        <!--<url-pattern>/hello</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<listener>-->
+
+        <!--<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>-->
+
+    <!--</listener>-->
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>

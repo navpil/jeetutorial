@@ -10,5 +10,6 @@ public class QuartzHelloWorld implements Job{
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         System.out.println("Hello quartz!");
+        throw new RuntimeException("Exception thrown");
     }
 }

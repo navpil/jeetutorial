@@ -1,0 +1,9 @@
+<Context>
+    <Resource name="jdbc/mydb" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+              url="jdbc:hsqldb:mem:coffeeshop"/>
+
+    <Environment name="mySpecialValue" value="10"
+                 type="java.lang.Integer" override="false"/>
+</Context>

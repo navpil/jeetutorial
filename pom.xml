@@ -12,6 +12,9 @@
         <module>arquilliandemo</module>
         <module>jaxws</module>
         <module>batches</module>
+        <module>servlet</module>
+        <module>cdi</module>
+        <module>wscdispring</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -71,9 +74,6 @@
                         <httpConnector>
                             <port>${jetty.http.port}</port>
                         </httpConnector>
-                        <webApp>
-                            <defaultsDescriptor>jetty-config/webdefault.xml</defaultsDescriptor>
-                        </webApp>
                     </configuration>
                 </plugin>
             </plugins>

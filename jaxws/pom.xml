@@ -13,9 +13,19 @@
     <groupId>ua.lviv.navpil</groupId>
     <artifactId>jaxws</artifactId>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     <packaging>pom</packaging>
     <modules>
         <module>jaxwstomcat</module>
         <module>wspure</module>
+        <module>jaxwscdi</module>
+        <module>cxf</module>
     </modules>
 </project>

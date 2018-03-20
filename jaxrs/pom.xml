@@ -20,30 +20,9 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.mortbay.jetty</groupId>-->
-                <!--<artifactId>jetty-maven-plugin</artifactId>-->
-                <!--<version>8.1.8.v20121106</version>-->
-                <!--<configuration>-->
-                    <!--<webDefaultXml>jetty-config/webdefault.xml</webDefaultXml>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.6.v20141205</version>
-
-                <!--Extracted configuration from /.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.7.v20170914/*.jar/org/eclipse/jetty/webapp/
-                And changed useFileMappedBuffer to false
-                 -->
-                <configuration>
-                    <httpConnector>
-                        <port>${jetty.http.port}</port>
-                    </httpConnector>
-                    <webApp>
-                        <defaultsDescriptor>jetty-config/webdefault.xml</defaultsDescriptor>
-                    </webApp>
-                </configuration>
             </plugin>
         </plugins>
     </build>
