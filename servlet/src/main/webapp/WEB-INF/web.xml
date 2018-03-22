@@ -5,8 +5,8 @@
     <display-name>Phone List</display-name>
 
     <servlet>
+        <!--Note no class name, but the servlet name is the same as in annotation-->
         <servlet-name>showPeopleServlet</servlet-name>
-        <servlet-class>ua.lviv.navpil.ShowPeopleServlet</servlet-class>
         <init-param>
             <param-name>politeSentence</param-name>
             <param-value>Welcome here</param-value>
@@ -17,9 +17,34 @@
         </init-param>
     </servlet>
 
+    <!--Because class name is stated here, this is just another instance of the servlet
+    and all of the annotations are ignored, special text value will be null -->
+    <servlet>
+        <servlet-name>showPeopleServlet2</servlet-name>
+        <servlet-class>ua.lviv.navpil.ShowPeopleServlet</servlet-class>
+
+        <init-param>
+            <param-name>politeSentence</param-name>
+            <param-value>Welcome here 2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>whoWins</param-name>
+            <param-value>WEB 2</param-value>
+        </init-param>
+    </servlet>
+
+
+    <!--This overrides url mapping in the annotation, if this one is commented out
+    then mapping will be /annotation-list
+    -->
     <servlet-mapping>
         <servlet-name>showPeopleServlet</servlet-name>
-        <url-pattern>/list</url-pattern>
+        <url-pattern>/web-list</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>showPeopleServlet2</servlet-name>
+        <url-pattern>/separate-list</url-pattern>
     </servlet-mapping>
 
 </web-app>

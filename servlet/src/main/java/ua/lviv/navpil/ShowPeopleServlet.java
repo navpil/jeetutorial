@@ -17,7 +17,8 @@ import java.sql.Statement;
 import java.text.MessageFormat;
 
 @WebServlet(name = "showPeopleServlet",
-//        urlPatterns = {"/show", "/list"},
+        //urlPatterns have to be specified even if they are overridden by web.xml
+        urlPatterns = {"/annotation-list"},
         initParams = {
                 @WebInitParam(name = "whoWins", value = "ANNOTATION"),
                 @WebInitParam(name = "specialTextValue", value = "Special"),
