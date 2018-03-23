@@ -9,9 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.lviv.navpil</groupId>
     <artifactId>servlet</artifactId>
-
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>

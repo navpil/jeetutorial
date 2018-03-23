@@ -3,15 +3,13 @@
 `web.xml` configuration takes precedence over `@WebServlet` configuration, but `mvn jetty:run` fails if `urlPatterns`
 are not specified in the `@WebServlet`
 
-However `mvn jetty:run` does not fail when entry in `web.xml` is like this (note that the servlet-class is provided):
+This is the correct way:
 
-    <servlet>
-        <servlet-name>showPeopleServlet2</servlet-name>
-        <servlet-class>ua.lviv.navpil.ShowPeopleServlet</servlet-class>
-        ...
-    </servlet>
-
-
+ 1. Name the servlet in annotation, set the urlPatterns and you may specify some init parameters
+ 2. Refer to the servlet under the same name and the class name in web.xml
+ 3. You may override the urlPatterns in web.xml with servlet-mapping, which will override the annotations
+ 4. You may override init parameters in web.xml
+ 
 
 https://stackoverflow.com/questions/2311065/what-is-web-xml-file-and-what-are-all-things-can-i-do-with-it
 
