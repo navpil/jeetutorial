@@ -16,6 +16,13 @@
 
     <build>
         <finalName>cdi</finalName>
+        <!-- I could not make it work with jetty -->
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
     <dependencies>
         <dependency>
@@ -29,9 +36,8 @@
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet</artifactId>
-            <version>2.2.14.Final</version>
+            <version>2.3.4.Final</version>
         </dependency>
-
     </dependencies>
 
 
