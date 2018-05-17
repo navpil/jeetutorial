@@ -3,4 +3,5 @@
 
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
     <Call name="prependServerClass"><Arg>-org.eclipse.jetty.servlet.</Arg></Call>
+    <Call name="prependServerClass"><Arg>-org.eclipse.jetty.server.handler.</Arg></Call>
 </Configure>

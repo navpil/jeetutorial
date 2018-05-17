@@ -16,11 +16,12 @@
 
     <build>
         <finalName>cdi</finalName>
-        <!-- I could not make it work with jetty -->
+
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.10.v20180503</version>
             </plugin>
         </plugins>
     </build>
@@ -36,9 +37,52 @@
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet</artifactId>
-            <version>2.3.4.Final</version>
+            <version>2.4.7.Final</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <!--<plugin>-->
+                        <!--<groupId>org.codehaus.mojo</groupId>-->
+                        <!--<artifactId>build-helper-maven-plugin</artifactId>-->
+                        <!--<version>1.7</version>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>add-source</id>-->
+                                <!--<phase>generate-sources</phase>-->
+                                <!--<goals>-->
+                                    <!--<goal>add-source</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<sources>-->
+                                        <!--<source>src/dev/java</source>-->
+                                    <!--</sources>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <configuration>
+                            <webResources>
+                                <resource>
+                                    <!-- this is relative to the pom.xml directory -->
+                                    <directory>src/dev/webapp</directory>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 
 </project>
