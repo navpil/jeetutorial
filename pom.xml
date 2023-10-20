@@ -14,7 +14,7 @@
         <module>batches</module>
         <module>servlet</module>
         <module>cdi</module>
-        <module>wscdispring</module>
+        <module>websockets</module>
     </modules>
     <packaging>pom</packaging>
 

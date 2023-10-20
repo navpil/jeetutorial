@@ -56,3 +56,18 @@ Wspure with no Dependency Injection
  https://spring.io/guides/gs/producing-web-service/
  - Application Server (Payara) - Done (DI is done automatically there)
  
+## Websockets
+
+Using Jakarta (requires Tomcat 10).
+Taken and adapted (simplified) from https://www.baeldung.com/java-websockets
+
+Minimal example.
+No additional libraries, like gson or slf4j included.
+
+Build in `websockets` using
+
+    mvn package
+
+Then deploy resulting war file to Tomcat and open `http://localhost:8080/websockets`
+in two browser tabs.
+Connect with two different names and try to chat.
